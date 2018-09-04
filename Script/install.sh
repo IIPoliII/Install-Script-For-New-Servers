@@ -37,7 +37,15 @@ Yes_No ()
 # function that is started when answer is yes
 Start_Install ()
 {
-  echo "Good, continuing installation"
+	echo "Good, continuing installation"
+  	apt update -y
+	apt upgrade -y
+	apt dist-upgrade -y
+	apt install -y openssh-server curl sudo git nano sed libssl-dev libpam0g-dev zlib1g-dev dh-autoreconf libssl-dev libpam0g-dev zlib1g-dev dh-autoreconflibssl-dev libpam0g-dev zlib1g-dev dh-autoreconf software-properties-common speedtest-cli apache2 proftpd screen 
+	usermod -a -G sudo root
+	apt update -y
+	apt upgrade -y
+	apt dist-upgrade -y
 exit 0
 }
 Yes_No
