@@ -1,7 +1,5 @@
 #!/bin/bash
-# a yes/no function
-# loop if not yes
-# start Start_Install function when yes (case insesitive)
+# Made by Poli
 message=$1
 if [ -z "$1" ]
 then
@@ -10,7 +8,7 @@ fi
 Yes_No ()
 {
   # print question
-  echo -n "Do want to install FishShell: "
+  echo -ne "\e[41mDo want to install FishShell: "
 
   # read answer
   read YnAnswer

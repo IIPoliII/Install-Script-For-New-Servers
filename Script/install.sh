@@ -1,7 +1,5 @@
 #!/bin/bash
-# a yes/no function
-# loop if not yes
-# start Start_Install function when yes (case insesitive)
+# Made by Poli
 Yes_No ()
 {
   # print question
