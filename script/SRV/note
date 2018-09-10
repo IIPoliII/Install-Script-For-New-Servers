@@ -1,0 +1,24 @@
+#!/bin/bash
+#############################
+#Crée par Poli###############
+#Licence GPLv3###############
+#Fichier : base##############
+#############################
+note=0
+echo "Quel est votre note?"
+read note
+if [ "$note" -ge 16 ]
+then
+	echo "Très bien"
+elif [ "$note" -ge 14 ]
+then
+	echo "Bien"
+elif [ "$note" -ge 12 ]
+then
+	echo "Assez bien"
+elif [ "$note" -ge 10 ]
+then
+	echo "Moyen"
+else
+	echo "Insuffisant"
+fi 

@@ -1,0 +1,10 @@
+#!/bin/bash
+#Martin
+#Adition
+echo "quel est le premier nombre ?"
+read num1
+echo "quel est le second nombre ?"
+read num2
+echo "quelle est l'opérateur ?"
+read cal
+echo "$(($num1$cal$num2))"

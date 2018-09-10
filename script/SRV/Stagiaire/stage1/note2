@@ -1,0 +1,40 @@
+#!/bin/bash
+#Martin Notes
+
+
+whi=0
+while [ $whi -eq 0 ]
+do
+		echo "quelle est ta note ?"
+	read var1
+if [ $var1 -ge "18" ]
+	then
+		echo "Bravo !"
+elif [ $var1 -eq "12" ]
+	then
+		echo "c'est acceptable mais tu peux faire mieux"
+elif [ $var1 -ge "13" ] && [ $var1 -le "17" ]
+	then
+		echo "c'est une bonne note"
+elif [ $var1 -lt "12" ]
+	then 
+		echo "il faut réviser plus !"
+fi
+
+
+		echo "appuyez sur Q pour quitter"
+read case
+whi=1
+
+case $case in
+"Q")
+whi=1
+;;
+"q")
+whi=1
+;;
+*)
+whi=0
+;;
+esac
+done

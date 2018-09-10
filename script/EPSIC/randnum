@@ -1,0 +1,25 @@
+#!/bin/bash
+#############################
+#Crée par Poli###############
+#Licence GPLv3###############
+#Fichier : randnum###########
+#############################
+
+random=$(( ( RANDOM % 100 )  + 1 ))
+echo "Numéro inconu trouver le (entre 0-100)."
+echo "donner nous un numéro"
+nombreessai=0
+numero=0
+while [ $numero -ne $random ]
+	do
+	read numero 
+	if [ $numero -gt $random ]
+		then
+		echo "Plus petit"
+		let "nombreessai=$nombreessai+1"
+	else
+		echo "Plus Grand"
+		let "nombreessai=$nombreessai+1"
+	fi
+done
+echo "Bravo vous avez reussi en $nombreessai essai"

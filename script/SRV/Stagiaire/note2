@@ -1,0 +1,34 @@
+
+#!/bin/bash
+res1="très bien"
+res2="bien"
+res3="bof"
+res4="nul"
+quitter=0
+
+
+until [[ $quitter -lt 0 ]]
+do
+declare note
+echo "rentrer votre note"
+read note
+if [[ $note -ge 18 ]]
+then
+echo "$res1"
+elif [[ $note -ge 15 ]]
+then
+echo "$res2"
+elif [[ $note -ge 12 ]]
+then
+echo "$res3"
+else 
+echo "$res4"
+fi
+
+echo "pour quitter cliquer sur q ou -1"
+read quitter
+if [ "$quitter" = "q" ]
+then
+quitter=-1
+fi  
+done

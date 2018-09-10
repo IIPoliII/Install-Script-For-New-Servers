@@ -1,0 +1,8 @@
+#!/bin/bash
+#Martin Hoszowski
+echo "Helllo World "
+echo "Comment t'appelles tu ?"
+read var1
+echo "quelle est ton nom de famille ?"
+read var2
+echo "Bonjour $var1 $var2"

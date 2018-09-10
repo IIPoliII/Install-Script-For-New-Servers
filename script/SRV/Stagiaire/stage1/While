@@ -1,0 +1,36 @@
+#!/bin/bash
+#Martin
+#While
+whi=0
+while [ $whi -eq "0" ]
+do
+echo "Selectionez"
+echo "1. Calculer l'addition d' un chffre"
+echo "2.Donnez votre nom"
+echo "3.Quittez"
+read case
+case $case in
+"1")
+echo "quel est le premier nombre ?"
+read num1
+echo "quel est le second nombre ?"
+read num2
+echo "$(($num1+$num2))"
+whi=1
+;;
+"2")
+echo "quel est votre nom ?"
+read nom1
+echo "quel est votre prénom ?"
+read nom2
+echo "Bonjour $nom2 $nom1"
+whi=1
+;;
+"3")
+echo "Au revoir"
+whi=1
+;;
+esac
+done
+echo "Merci d'avoir participez et bonne journée"
+

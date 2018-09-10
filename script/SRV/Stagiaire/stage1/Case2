@@ -1,0 +1,28 @@
+#!/bin/bash
+#Martin
+#Case test
+
+echo "quel est le premier numéro ?"
+read num1
+echo "quel est le second numéro ?"
+read num2
+echo "quel l'opérateur ?"
+read ope
+
+case $ope in
+"+")
+echo "$(($num1$ope$num2))"
+;;
+"-")
+echo "$(($num1$ope$num2))"
+;;
+"/")
+echo "$(($num1$ope$num2))"
+;;
+"*")
+echo "$(($num1$ope$num2))"
+;;
+*)
+echo "je ne peux pas faire se calcul"
+;;
+esac

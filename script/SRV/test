@@ -1,0 +1,21 @@
+#!/bin/bash
+while true; do
+
+	echo "How many fingers am I holding up (1-5)?"
+	read -n 1 guess
+
+	case $guess in
+
+		[^1-5]) echo "I don't have that many fingers! Guess again."
+			continue	;;
+
+		4)	echo "You guessed correctly! Congratulations!"
+			echo "Goodbye."
+			break		;;
+
+		*)	echo "Bzzzt! Try again."
+			continue	;;
+
+	esac
+
+done

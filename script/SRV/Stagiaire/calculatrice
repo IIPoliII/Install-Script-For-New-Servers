@@ -1,0 +1,30 @@
+#!/bin/sh
+# Calculatrice 
+
+echo "calculatrice" 
+chifre1=0
+chifre2=0 
+operateur=+ 
+quiter=0 
+until [ $quiter -ne '0' ] 
+do
+chifre1=0
+echo "entez le chifre1"
+read chifre1
+
+echo "entrez l'operateur"
+read operateur
+echo "entrez chifre2"
+read chifre2
+echo "Voici la réponse"
+let res=$chifre1$operateur$chifre2
+echo "$res"
+read -p 'Voulez vous quitter presser sur q : ' quiter
+if [ "$quiter" = q ]
+then
+	quiter=-1
+else
+	echo ""
+fi
+done
+

@@ -1,0 +1,31 @@
+#!/bin/bash
+declare reponse
+i=0
+declare nombre
+declare quitter
+
+until [[ $quitter -lt 0 ]]
+do 
+reponse=$(( ( RANDOM % 100 ) + 1 ))
+while [[ $nombre -ne $reponse ]]
+do
+echo "Donner moi un nombre"
+read nombre
+if [[ $reponse -lt $nombre ]]
+then
+echo "plus petit"
+let "i++"
+else 
+echo "plus grand"
+let "i++"
+fi
+done
+echo "vous avez trouvé c'était bien:$reponse"
+echo "vous l'avez trouvé en $i fois"
+echo "pour quitter cliquer sur q ou -1"
+read quitter 
+if [ "$quitter" = "q" ]
+then
+quitter=-1
+fi
+done
