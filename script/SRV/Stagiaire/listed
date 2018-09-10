@@ -1,6 +1,0 @@
-#!/bin/bash
-
-declare nomdossier
-nomdossier=$1
-
-ls -lhG --color=always $nomdossier | sed -re 's/^[^ ]* //'                        

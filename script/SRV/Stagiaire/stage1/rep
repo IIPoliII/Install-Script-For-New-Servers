@@ -1,8 +1,0 @@
-#!/bin/bash
-#Matin
-#creation de repertoir
- 
-
-rep=$((RANDOM))
-
-mkdir $rep 

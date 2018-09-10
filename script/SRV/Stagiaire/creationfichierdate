@@ -1,7 +1,0 @@
-#!/bin/bash
-
-Annee=`date +%Y`
-Mois=`date +%m`
-Jour=`date +%d`
-
-mkdir "$Jour-$Mois-$Annee"
