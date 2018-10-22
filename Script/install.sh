@@ -4,7 +4,7 @@ Yes_No ()
 {
   # print question
   echo -e "\033[33mWelcome to Poli's server instllation tool\033[0m"
-  echo -ne "\e[41mDo you want to install everything :"
+  echo -ne "\e[41mDo you want to install everything (only yes for now is avalible):"
 
   # read answer
   read YnAnswer
@@ -47,7 +47,7 @@ Start_Install ()
 	apt dist-upgrade -y
 exit 0
 }
-Start_Install_One_One ()
+: 'Start_Install_One_One ()
 {
 	echo -e "\e[41mGood, installing one by one"
 	echo -e "\e[41mIt's not recommanded to install packages one by one"
@@ -367,9 +367,10 @@ Start_Install_One_One ()
     "no") echo "Won't be installed" ;;
     *)      echo "Please answer yes or no (y|n)" ; Yes_No ;;
   esac
-./Fish/fish.sh
+
 
 exit 0
-}
-Yes_No
+}'
+Yes_No 
+./Fish/fish.sh
 
