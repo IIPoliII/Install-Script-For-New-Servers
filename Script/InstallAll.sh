@@ -17,9 +17,9 @@ Yes_No ()
      "yes") Start_Install ;;
      "ye")  Start_Install ;;
      "y")   Start_Install ;;
-     "n") echo "These apps won't be installed" ;;
-    "no") echo "These apps won't be installed" ;;
-    *)      echo "Please answer yes or no (y|n)" ; Yes_No ;;
+     "n")   echo "These apps won't be installed" ;;
+     "no")  echo "These apps won't be installed" ;;
+     *)     echo "Please answer yes or no (y|n)" ; Yes_No ;;
   esac
 }
 
