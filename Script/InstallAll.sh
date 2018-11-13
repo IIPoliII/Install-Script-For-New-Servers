@@ -14,21 +14,11 @@ Yes_No ()
 
   # check and act on given answer
   case $YnAnswer in
-   "yes")  Start_Install ;;
-   "Yes")  Start_Install ;;
-   "YES")  Start_Install ;;
-     "Y")  Start_Install ;;
-     "y")  Start_Install ;;
-    "NO") echo "These apps won't be installed"
-	  Start_Install_One_One ;;
-    "No") echo "These apps won't be installed"
-	  Start_Install_One_One ;;
-     "n") echo "These apps won't be installed"
-	  Start_Install_One_One ;;
-     "N") echo "These apps won't be installed"
-	  Start_Install_One_One	;;
-    "no") echo "These apps won't be installed"
-	  Start_Install_One_One ;;
+     "yes") Start_Install ;;
+     "ye")  Start_Install ;;
+     "y")   Start_Install ;;
+     "n") echo "These apps won't be installed" ;;
+    "no") echo "These apps won't be installed" ;;
     *)      echo "Please answer yes or no (y|n)" ; Yes_No ;;
   esac
 }
