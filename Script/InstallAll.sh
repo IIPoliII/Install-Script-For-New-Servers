@@ -2,6 +2,7 @@
 # Made by Poli
 Yes_No ()
 {
+  apt install git -y
   # print question
   echo -e "\033[33mWelcome to Poli's server instllation tool\033[0m"
   echo -ne "\e[41mDo you want to install everything (only yes for now is avalible):"
@@ -38,3 +39,18 @@ Start_Install ()
 exit 0
 }
 Yes_No
+echo "Do you want to install a minecraft server (with spigot)"
+  read YnAnswer
+
+  # all to lower case
+  YnAnswer=$(echo $YnAnswer | awk '{print tolower($0)}')
+
+  # check and act on given answer
+  case $YnAnswer in
+     "yes") ./Script/Minecraft/spigotinstallscreen.sh ;;
+     "ye")  ./Script/Minecraft/spigotinstallscreen.sh ;;
+     "y")   ./Script/Minecraft/spigotinstallscreen.sh ;;
+     "n")   echo "The minecraft server won't be installed" ;;
+     "no")  echo "The minecraft server won't be installed" ;;
+     *)     echo "Please answer yes or no (y|n)" ; Yes_No ;;
+  esac
