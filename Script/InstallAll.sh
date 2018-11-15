@@ -54,3 +54,20 @@ echo "Do you want to install a minecraft server (with spigot)"
      "no")  echo "The minecraft server won't be installed" ;;
      *)     echo "Please answer yes or no (y|n)" ; Yes_No ;;
   esac
+  echo "Do you want to install a plex server"
+  read YnAnswer
+
+  # all to lower case
+  YnAnswer=$(echo $YnAnswer | awk '{print tolower($0)}')
+
+  # check and act on given answer
+  case $YnAnswer in
+     "yes") bash -c "$(wget -qO - https://raw.githubusercontent.com/mrworf/plexupdate/master/extras/installer.sh)" ;;
+     "ye")  bash -c "$(wget -qO - https://raw.githubusercontent.com/mrworf/plexupdate/master/extras/installer.sh)" ;;
+     "y")   bash -c "$(wget -qO - https://raw.githubusercontent.com/mrworf/plexupdate/master/extras/installer.sh)" ;;
+     "n")   echo "The plex server won't be installed" ;;
+     "no")  echo "The plex server won't be installed" ;;
+     *)     echo "Please answer yes or no (y|n)" ; Yes_No ;;
+  esac
+mkdir /var/www
+chmod 777 /home/download 
