@@ -38,7 +38,6 @@ Start_Install ()
 	apt update -y
 	apt upgrade -y
 	apt dist-upgrade -y
-break 0
 }
 Yes_No
 echo "Please enter your domain name (none won't create the subdomains in apache):"
