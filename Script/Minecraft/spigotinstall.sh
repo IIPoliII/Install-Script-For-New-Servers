@@ -7,8 +7,8 @@ maxram=1
 minram=1
 apt install openjdk-8-jdk git openjdk-8-jre-headless -y
 java -version
-mkdir MC
-cd MC
+mkdir ../MC
+cd ../MC
 wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
 java -jar BuildTools.jar --rev latest
 var=$(find -maxdepth 1 -name "spigot*.jar")
