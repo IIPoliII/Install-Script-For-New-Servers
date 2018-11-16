@@ -33,12 +33,12 @@ Start_Install ()
   	apt update -y
 	apt upgrade -y
 	apt dist-upgrade -y
-	apt install -y openssh-server wget curl sudo git nano sed libssl-dev libpam0g-dev zlib1g-dev dh-autoreconf software-properties-common speedtest-cli apache2 proftpd screen php
+	apt install -y openssh-server wget curl sudo git nano sed libssl-dev libpam0g-dev zlib1g-dev dh-autoreconf software-properties-common speedtest-cli apache2 proftpd screen php htop
 	usermod -a -G sudo root
 	apt update -y
 	apt upgrade -y
 	apt dist-upgrade -y
-exit 0
+break 0
 }
 Yes_No
 echo "Please enter your domain name (none won't create the subdomains in apache):"
