@@ -1,4 +1,7 @@
 # Install-Script-For-New-Servers
+To use the Script use :
+`bash -c "$(wget -qO - https://raw.githubusercontent.com/IIPoliII/Install-Script-For-New-Servers/master/Script/InstallAll.sh)"`
+
 This Script is for my personal use for the packages i use when i create a new server.
 It can only work under Ubuntu, Debian, Rasbiann, and debian distros with APT.
 
