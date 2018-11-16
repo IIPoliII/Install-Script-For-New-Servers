@@ -7,7 +7,7 @@ Yes_No ()
   apt install git -y
   # print question
   echo -e "\033[33mWelcome to Poli's server instllation tool\033[0m"
-  echo -ne "\e[41mDo you want to install everything (only yes for now is avalible):"
+  echo -ne "Do you want to install everything:"
 
   # read answer
   read YnAnswer
@@ -29,7 +29,7 @@ Yes_No ()
 # function that is started when answer is yes
 Start_Install ()
 {
-	echo -e "\e[41mGood, continuing installation"
+	echo -e "Good, continuing installation"
   	apt update -y
 	apt upgrade -y
 	apt dist-upgrade -y
@@ -65,28 +65,33 @@ while true; do
 				 git clone https://github.com/IIPoliII/Cute-File-Browser-Poli.git
 				 mv Cute-File-Browser-Poli/ /var/www/download
 				 chmod 777 /var/www/download
-				 echo "<html lang="en">" > /var/www/download/index.html
-				 echo "<head>" >> /var/www/download/index.html
-				 echo "<title>Redirection.....</title>" >> /var/www/download/index.html
-				 echo '<meta http-equiv="refresh" content="0; URL=http://download.${Domain}/">'	>> /var/www/download/index.html	
-				 echo "</head>" >> /var/www/download/index.html
-				 echo "<body>" >> /var/www/download/index.html
-				 echo "Redirection vers l'explorateur de fichiers" >> /var/www/download/index.html
-				 echo "</body>" >> /var/www/download/index.html
-				 echo "</html>" >> /var/www/download/index.html
+				 mkdir /var/www/html/download
+				 chmod 777 /var/www/html/download
+				 echo "<html lang="en">" > /var/www/html/download/index.html
+				 echo "<head>" >> /var/www/html/download/index.html
+				 echo "<title>Redirection.....</title>" >> /var/www/html/download/index.html
+				 meta='<meta http-equiv="refresh" content="0; URL='
+				 URL="http://download.${Domain}/"
+				 end='">'
+				 echo ${meta}${URL}${end} >> /var/www/html/download/index.html	
+				 echo "</head>" >> /var/www/html/download/index.html
+				 echo "<body>" >> /var/www/html/download/index.html
+				 echo "Redirection vers l'explorateur de fichiers" >> /var/www/html/download/index.html
+				 echo "</body>" >> /var/www/html/download/index.html
+				 echo "</html>" >> /var/www/html/download/index.html
 				 
 				 echo '<VirtualHost *:80>' > /etc/apache2/sites-available/download.${Domain}.conf
-				 echo '    ServerAdmin ${Admin}' >> /etc/apache2/sites-available/download.${Domain}.conf
+				 echo "    ServerAdmin ${Admin}" >> /etc/apache2/sites-available/download.${Domain}.conf
 				 echo "    DocumentRoot /var/www/download" >> /etc/apache2/sites-available/download.${Domain}.conf
 				 echo "    ErrorLog ${APACHE_LOG_DIR}/error.log" >> /etc/apache2/sites-available/download.${Domain}.conf
 				 echo "    CustomLog ${APACHE_LOG_DIR}/access.log combined" >> /etc/apache2/sites-available/download.${Domain}.conf
-				 echo '    ServerName download.${Domain}' >> /etc/apache2/sites-available/download.${Domain}.conf
-				 echo '    ServerAlias www.download.${Domain}' >> /etc/apache2/sites-available/download.${Domain}.conf
+				 echo "    ServerName download.${Domain}" >> /etc/apache2/sites-available/download.${Domain}.conf
+				 echo "    ServerAlias www.download.${Domain}" >> /etc/apache2/sites-available/download.${Domain}.conf
 				 echo "    DirectoryIndex index.php" >> /etc/apache2/sites-available/download.${Domain}.conf
 				 echo "</VirtualHost>" >> /etc/apache2/sites-available/download.${Domain}.conf
 				 a2ensite download.${Domain}.conf
 				 systemctl reload apache2; break;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
@@ -102,8 +107,8 @@ while true; do
 					 echo "    DocumentRoot /var/www/status" >> /etc/apache2/sites-available/status.${Domain}.conf
 					 echo "    ErrorLog ${APACHE_LOG_DIR}/error.log" >> /etc/apache2/sites-available/status.${Domain}.conf
 					 echo "    CustomLog ${APACHE_LOG_DIR}/access.log combined" >> /etc/apache2/sites-available/status.${Domain}.conf
-					 echo '    ServerName status.${Domain}' >> /etc/apache2/sites-available/status.${Domain}.conf
-					 echo '    ServerAlias www.status.${Domain}' >> /etc/apache2/sites-available/status.${Domain}.conf
+					 echo "    ServerName status.${Domain}" >> /etc/apache2/sites-available/status.${Domain}.conf
+					 echo "    ServerAlias www.status.${Domain}" >> /etc/apache2/sites-available/status.${Domain}.conf
 					 echo "    DirectoryIndex index.html" >> /etc/apache2/sites-available/status.${Domain}.conf
 					 echo "</VirtualHost>" >> /etc/apache2/sites-available/status.${Domain}.conf
 					 a2ensite status.${Domain}.conf
@@ -117,7 +122,7 @@ while true; do
     read -p "Do you want to install a minecraft server (with spigot) ?" yn
     case $yn in
         [Yy]* ) ./Script/Minecraft/spigotinstallscreen.sh; break;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
@@ -125,7 +130,7 @@ while true; do
     read -p "Do you want to install a plex server ?" yn
     case $yn in
         [Yy]* ) bash -c "$(wget -qO - https://raw.githubusercontent.com/mrworf/plexupdate/master/extras/installer.sh)"; break;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
