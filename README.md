@@ -13,5 +13,5 @@ And it will put the root user in the sudo group.
 It makes you a folder with a file browser, and also a status website for your games (who need to be configured but it creates the subdomain and folder)
 
 Then you can install a minecraft Server with spigot.
-And you can also install a Plex server
-I am devloping the Transmission-deamon installtion part now.
+And you can also install a Plex server.
+I am developing the Transmission-deamon installtion part now.
