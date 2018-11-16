@@ -11,7 +11,7 @@ mkdir MC
 cd MC
 wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
 java -jar BuildTools.jar --rev latest
-var=$(find -name "spigot*.jar")
+var=$(find -maxdepth 1 -name "spigot*.jar")
 echo $var
 var2="${var:2}"
 echo $var2
