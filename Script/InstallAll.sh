@@ -55,57 +55,77 @@ echo "Using default Mail Admin :"
 Admin=webmaster@localhost
 echo $Admin
 fi
-echo "The Final admin mail is : $Admin"
+echo "The Final admin mail is : $Admin (if there is an error now worries)"
 echo "Do you want to configure the web download directory ?"
-read -p ":" -n 1 -r
-     if [[ ! $REPLY =~ ^[Yy]$ ]]
-	 then
-	 echo "Ok configuring ........"
-	 mkdir /var/www/download
-	 chmod 777 /var/www/download
-	 echo "<VirtualHost *:80>" > etc/apache2/sites-avalible/download.${Domain}
-	 echo "    ServerAdmin ${Admin}" >> etc/apache2/sites-avalible/download.${Domain}
-	 echo "    DocumentRoot /var/www/download" >> etc/apache2/sites-avalible/download.${Domain}
-	 echo "    ErrorLog ${APACHE_LOG_DIR}/error.log" >> etc/apache2/sites-avalible/download.${Domain}
-	 echo "    CustomLog ${APACHE_LOG_DIR}/access.log combined" >> etc/apache2/sites-avalible/download.${Domain}
-	 echo "    ServerName download.${Domain}" >> etc/apache2/sites-avalible/download.${Domain}
-	 echo "    ServerAlias www.download.${Domain}" >> etc/apache2/sites-avalible/download.${Domain}
-	 echo "</VirtualHost>" >> etc/apache2/sites-avalible/download.${Domain}	 
-	 else
-	 echo "Not configuring"
-	 fi
+while true; do
+    read -p "Type your answer (y,n,yes,no)?" yn
+    case $yn in
+        [Yy]* )  echo "Ok configuring ........"
+				 apt install php git -y
+				 git clone https://github.com/IIPoliII/Cute-File-Browser-Poli.git
+				 mv Cute-File-Browser-Poli/ /var/www/download
+				 chmod 777 /var/www/download
+				 echo "<html lang="en">" > /var/www/download/index.html
+				 echo "<head>" >> /var/www/download/index.html
+				 echo "<title>Redirection.....</title>" >> /var/www/download/index.html
+				 echo '<meta http-equiv="refresh" content="0; URL=http://download.${Domain}/">'	>> /var/www/download/index.html	
+				 echo "</head>" >> /var/www/download/index.html
+				 echo "<body>" >> /var/www/download/index.html
+				 echo "Redirection vers l'explorateur de fichiers" >> /var/www/download/index.html
+				 echo "</body>" >> /var/www/download/index.html
+				 echo "</html>" >> /var/www/download/index.html
+				 
+				 echo '<VirtualHost *:80>' > /etc/apache2/sites-available/download.${Domain}.conf
+				 echo '    ServerAdmin ${Admin}' >> /etc/apache2/sites-available/download.${Domain}.conf
+				 echo "    DocumentRoot /var/www/download" >> /etc/apache2/sites-available/download.${Domain}.conf
+				 echo "    ErrorLog ${APACHE_LOG_DIR}/error.log" >> /etc/apache2/sites-available/download.${Domain}.conf
+				 echo "    CustomLog ${APACHE_LOG_DIR}/access.log combined" >> /etc/apache2/sites-available/download.${Domain}.conf
+				 echo '    ServerName download.${Domain}' >> /etc/apache2/sites-available/download.${Domain}.conf
+				 echo '    ServerAlias www.download.${Domain}' >> /etc/apache2/sites-available/download.${Domain}.conf
+				 echo "    DirectoryIndex index.php" >> /etc/apache2/sites-available/download.${Domain}.conf
+				 echo "</VirtualHost>" >> /etc/apache2/sites-available/download.${Domain}.conf
+				 a2ensite download.${Domain}.conf
+				 systemctl reload apache2; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 echo "Do you want to configure the web status directory ?"
-read -p ":" -n 1 -r
-     if [[ ! $REPLY =~ ^[Yy]$ ]]
-	 then
-	 echo "Ok configuring ........"
-	 mkdir /var/www/status
-	 chmod 777 /var/www/status
-	 echo "<VirtualHost *:80>" > etc/apache2/sites-avalible/status.${Domain}
-	 echo "    ServerAdmin ${Admin}" >> etc/apache2/sites-avalible/status.${Domain}
-	 echo "    DocumentRoot /var/www/status" >> etc/apache2/sites-avalible/status.${Domain}
-	 echo "    ErrorLog ${APACHE_LOG_DIR}/error.log" >> etc/apache2/sites-avalible/status.${Domain}
-	 echo "    CustomLog ${APACHE_LOG_DIR}/access.log combined" >> etc/apache2/sites-avalible/status.${Domain}
-	 echo "    ServerName status.${Domain}" >> etc/apache2/sites-avalible/status.${Domain}
-	 echo "    ServerAlias www.status.${Domain}" >> etc/apache2/sites-avalible/status.${Domain}
-	 echo "</VirtualHost>" >> etc/apache2/sites-avalible/status.${Domain}	
-	 else
-	 echo "Not configuring"
-	 fi
+while true; do
+    read -p "Type your answer (y,n,yes,no)?" yn
+    case $yn in
+        [Yy]* ) 	 echo "Ok configuring ........"
+					 mkdir /var/www/status
+					 chmod 777 /var/www/status
+					 echo '<VirtualHost *:80>' > /etc/apache2/sites-available/status.${Domain}.conf
+					 echo "    ServerAdmin ${Admin}" >> /etc/apache2/sites-available/status.${Domain}.conf
+					 echo "    DocumentRoot /var/www/status" >> /etc/apache2/sites-available/status.${Domain}.conf
+					 echo "    ErrorLog ${APACHE_LOG_DIR}/error.log" >> /etc/apache2/sites-available/status.${Domain}.conf
+					 echo "    CustomLog ${APACHE_LOG_DIR}/access.log combined" >> /etc/apache2/sites-available/status.${Domain}.conf
+					 echo '    ServerName status.${Domain}' >> /etc/apache2/sites-available/status.${Domain}.conf
+					 echo '    ServerAlias www.status.${Domain}' >> /etc/apache2/sites-available/status.${Domain}.conf
+					 echo "    DirectoryIndex index.html" >> /etc/apache2/sites-available/status.${Domain}.conf
+					 echo "</VirtualHost>" >> /etc/apache2/sites-available/status.${Domain}.conf
+					 a2ensite status.${Domain}.conf
+					 systemctl reload apache2; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 fi
-echo "Do you want to install a minecraft server (with spigot)"
-read -p ":" -n 1 -r
-     if [[ ! $REPLY =~ ^[Yy]$ ]]
-	 then
-	 ./Script/Minecraft/spigotinstallscreen.sh
-	 else
-	 echo "Not installing"
-	 fi
-echo "Do you want to install a plex server"
-read -p ":" -n 1 -r
-     if [[ ! $REPLY =~ ^[Yy]$ ]]
-	 then
-	 bash -c "$(wget -qO - https://raw.githubusercontent.com/mrworf/plexupdate/master/extras/installer.sh)"
-	 else
-	 echo "Not installing"
-	 fi
+while true; do
+    read -p "Do you want to install a minecraft server (with spigot) ?" yn
+    case $yn in
+        [Yy]* ) ./Script/Minecraft/spigotinstallscreen.sh; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+while true; do
+    read -p "Do you want to install a plex server ?" yn
+    case $yn in
+        [Yy]* ) bash -c "$(wget -qO - https://raw.githubusercontent.com/mrworf/plexupdate/master/extras/installer.sh)"; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
