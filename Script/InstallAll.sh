@@ -120,7 +120,7 @@ fi
 while true; do
     read -p "Do you want to install a minecraft server (with spigot) ?" yn
     case $yn in
-        [Yy]* ) bash -c "$(wget -qO - https://raw.githubusercontent.com/IIPoliII/Install-Script-For-New-Servers/master/Script/Minecraft/spigotinstallscreen.sh)"
+        [Yy]* ) bash -c "$(wget -qO - https://raw.githubusercontent.com/IIPoliII/Install-Script-For-New-Servers/master/Script/Minecraft/spigotinstall.sh)"
 				rm spigotinstall.sh; break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
