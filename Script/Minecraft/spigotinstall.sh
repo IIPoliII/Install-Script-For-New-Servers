@@ -39,7 +39,8 @@ echo $minram
 fi
 echo "The Final max used ram is : $minram G"
 echo "Enter the Minecraft server name :"
-read 'name'
+read name
+echo "Error Generated ? No worries !"
 if [[ $name -eq " " ]]
 then
 echo "Using default name :"
