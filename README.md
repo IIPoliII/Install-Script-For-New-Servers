@@ -12,6 +12,28 @@ And it will put the root user in the sudo group.
 
 It makes you a folder with a file browser, and also a status website for your games (who need to be configured but it creates the subdomain and folder)
 
-Then you can install a minecraft Server with spigot.
 And you can also install a Plex server.
-I am developing the Transmission-deamon installtion part now.
+It will configure you a transmission deamon client too.
+Then you can choose in a list of 21 games servers :
+ 1) ARK Server
+ 2) CS:GO
+ 3) CSS
+ 4) Double Action
+ 5) ECO
+ 6) Factorio
+ 7) Fistful of Frags
+ 8) Garry's mod
+ 9) Insurgency
+ 10) Just Cause 2
+ 11) Just Cause 3
+ 12) Left 4 Dead 2
+ 13) Mumble
+ 14) Project Cars
+ 15) GTA San Andreas Multiplayer
+ 16) StarBound
+ 17) Stationeers
+ 18) Team Fortress 2
+ 19) TeamSpeak 3
+ 20) Don't Starve Together
+ 21) Rust
+ 22) Minecraft (with Spigot)
