@@ -1,6 +1,6 @@
 #!/bin/bash
 # Made by Poli
-if [ "$USER" = "root"]
+if [ "$USER" = "root" ]
 then
 apt install screen -y
 mkdir temp
