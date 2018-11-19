@@ -1,5 +1,7 @@
 #!/bin/bash
 # Made by Poli
+if [ "$USER" = "root"]
+then
 apt install screen -y
 mkdir temp
 cd temp
@@ -8,4 +10,7 @@ chmod +x InstallAll.sh
 screen ./InstallAll.sh
 cd ..
 rm -r temp
+else
+echo "Run this script as root !"
+fi
 echo "Script Finished"
