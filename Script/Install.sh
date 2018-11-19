@@ -11,6 +11,6 @@ screen ./InstallAll.sh
 cd ..
 rm -r temp
 else
-echo "Run this script as root !"
+echo "Run this script as root or using sudo in the front of it !"
 fi
 echo "Script Finished"
