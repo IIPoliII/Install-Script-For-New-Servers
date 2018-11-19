@@ -9,7 +9,7 @@ Yes_No ()
   # print question
   echo -e "\033[33mWelcome to Poli's server instllation tool\033[0m"
   echo -ne "Do you want to install everything:"
-
+  cd /home
   # read answer
   read YnAnswer
 
@@ -448,7 +448,9 @@ while true; do
 			 runuser -l rustserver -c './rustserver install'
 			 cd /home
 			 ;;
-		22 ) bash -c "$(wget -qO - https://raw.githubusercontent.com/IIPoliII/Install-Script-For-New-Servers/master/Script/Minecraft/spigotinstall.sh)" 
+		22 ) useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) mcserver
+			 cd /home/mcserver
+			 runuser -l mcserver -c 'bash -c "$(wget -qO - https://raw.githubusercontent.com/IIPoliII/Install-Script-For-New-Servers/master/Script/Minecraft/spigotinstall.sh)"'
 			 ;;
         * ) echo "Please answer yes or no.";;
     esac
