@@ -119,14 +119,6 @@ while true; do
 done
 fi
 while true; do
-    read -p "Do you want to install a minecraft server (with spigot) ?" yn
-    case $yn in
-        [Yy]* ) bash -c "$(wget -qO - https://raw.githubusercontent.com/IIPoliII/Install-Script-For-New-Servers/master/Script/Minecraft/spigotinstall.sh)"; break;;
-        [Nn]* ) break;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
-while true; do
     read -p "Do you want to install a plex server ?" yn
     case $yn in
         [Yy]* ) bash -c "$(wget -qO - https://raw.githubusercontent.com/mrworf/plexupdate/master/extras/installer.sh)"; break;;
@@ -288,7 +280,7 @@ while true; do
     esac
 done
 while true; do
-	echo -e "0) Don't install (Exit) \n 1) ARK Server \n 2) CS:GO \n 3) CSS \n 4) Double Action \n 5) ECO \n 6) Factorio \n 7) Fistful of Frags \n 8) Garry's mod \n 9) Insurgency \n 10) Just Cause 2 \n 11) Just Cause 3 \n 12) Left 4 Dead 2 \n 13) Mumble \n 14) Project Cars \n 15) GTA San Andreas Multiplayer \n 16) StarBound \n 17) Stationeers \n 18) Team Fortress 2 \n 19) TeamSpeak 3 \n 20) Don't Starve Together \n 21) Rust \n"
+	echo -e "0) Don't install (Exit) \n 1) ARK Server \n 2) CS:GO \n 3) CSS \n 4) Double Action \n 5) ECO \n 6) Factorio \n 7) Fistful of Frags \n 8) Garry's mod \n 9) Insurgency \n 10) Just Cause 2 \n 11) Just Cause 3 \n 12) Left 4 Dead 2 \n 13) Mumble \n 14) Project Cars \n 15) GTA San Andreas Multiplayer \n 16) StarBound \n 17) Stationeers \n 18) Team Fortress 2 \n 19) TeamSpeak 3 \n 20) Don't Starve Together \n 21) Rust \n 22) Minecraft (with Spigot) \n"
     read -p "Do you want to install a any of the games SERVER from the list ?" yn
 		if [[ $yn -eq "0" ]]
 	then
@@ -455,6 +447,8 @@ while true; do
 			 runuser -l rustserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh rustserver'
 			 runuser -l rustserver -c './rustserver install'
 			 cd /home
+			 ;;
+		22 ) bash -c "$(wget -qO - https://raw.githubusercontent.com/IIPoliII/Install-Script-For-New-Servers/master/Script/Minecraft/spigotinstall.sh)" 
 			 ;;
         * ) echo "Please answer yes or no.";;
     esac
