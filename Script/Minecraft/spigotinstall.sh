@@ -87,6 +87,7 @@ echo "to quit it use crtl+a d to turn off the minecraft server type stop while b
 chmod +x start.sh
 echo "#!/bin/bash" > atach.sh
 echo "screen -R MC" >> atach.sh
+chmod +x atach.sh
 echo "#!/bin/bash" > startmc.sh
 echo "java -Xms${minram}G -Xmx${maxram}G -XX:+UseConcMarkSweepGC -jar $var2" >> startmc.sh
 chmod +x startmc.sh
