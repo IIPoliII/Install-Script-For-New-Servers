@@ -459,7 +459,7 @@ done
 while true; do
     read -p "Do you want to install a NetData Monitor ?" yn
     case $yn in
-        [Yy]* ) apt install netdata -y; break;;
+        [Yy]* ) bash <(curl -Ss https://my-netdata.io/kickstart.sh) all --dont-wait; break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
