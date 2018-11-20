@@ -85,4 +85,5 @@ echo "#!/bin/bash" > startmc.sh
 echo "java -Xms${minram}G -Xmx${maxram}G -XX:+UseConcMarkSweepGC -jar $var2" >> startmc.sh
 chmod +x startmc.sh
 echo "To start the server use ./start.sh"
+
 exit
