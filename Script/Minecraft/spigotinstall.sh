@@ -78,14 +78,14 @@ echo "max-players=$player" >> server.properties
 echo "view-distance=$view" >> server.properties
 sed -i '3s/false/true/g' eula.txt
 echo "#!/bin/bash" > start.sh
-echo "screen -d -m ./startmc.sh" >> start.sh
+echo "screen -d -m -S MC ./startmc.sh" >> start.sh
+echo "script /dev/null" >> start.sh
 chmod +x start.sh
 echo "#!/bin/bash" > startmc.sh
 echo "java -Xms${minram}G -Xmx${maxram}G -XX:+UseConcMarkSweepGC -jar $var2" >> startmc.sh
 chmod +x startmc.sh
 echo "To start the server use ./start.sh"
-cd plugins/
 wget https://github.com/IIPoliII/Install-Script-For-New-Servers/raw/master/Script/Minecraft/Dynmap.jar
 chmod +x Dynmap.jar
-cd ..
+mv Dynmap.jar plugins/Dynmap.jar
 exit
