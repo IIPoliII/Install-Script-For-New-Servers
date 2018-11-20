@@ -17,6 +17,7 @@ echo "java -Xms1G -Xmx1G -XX:+UseConcMarkSweepGC -jar $var2" >> startinstall.sh
 chmod +rwx Spigot/*
 chmod +x startinstall.sh
 ./startinstall.sh
+rm startinstall.sh
 echo "Enter the max ram used (in Gigabytes, write only number) :"
 read maxram
 if [[ $maxram -eq " " ]]
