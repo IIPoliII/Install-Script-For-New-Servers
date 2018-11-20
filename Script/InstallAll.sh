@@ -451,7 +451,9 @@ while true; do
 			 ;;
 		22 ) useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) mcserver
 			 cd /home/mcserver
+			 apt install openjdk-8-jdk git openjdk-8-jre-headless -y
 			 runuser -l mcserver -c 'bash -c "$(wget -qO - https://raw.githubusercontent.com/IIPoliII/Install-Script-For-New-Servers/master/Script/Minecraft/spigotinstall.sh)"'
+			 cd /home
 			 ;;
         * ) echo "Please answer yes or no.";;
     esac

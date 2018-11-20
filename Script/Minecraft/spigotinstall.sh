@@ -5,9 +5,6 @@ player=20
 view=10
 maxram=1
 minram=1
-mkdir MC
-cd MC
-apt install openjdk-8-jdk git openjdk-8-jre-headless -y
 java -version
 wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
 java -jar BuildTools.jar --rev latest
@@ -90,6 +87,5 @@ echo "To start the server use ./start.sh"
 cd plugins/
 wget https://github.com/IIPoliII/Install-Script-For-New-Servers/raw/master/Script/Minecraft/Dynmap.jar
 chmod +x Dynmap.jar
-cd ..
 cd ..
 exit
