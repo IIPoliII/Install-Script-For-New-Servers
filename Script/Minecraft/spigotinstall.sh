@@ -80,6 +80,9 @@ sed -i '3s/false/true/g' eula.txt
 echo "#!/bin/bash" > start.sh
 echo "screen -d -m -S MC ./startmc.sh" >> start.sh
 echo "script /dev/null" >> start.sh
+echo "screen -ls" >> start.sh
+echo "Make screen -R MC   to reatach your screen" >> start.sh
+echo "to quit it use crtl+a d to turn off the minecraft server type stop while beeing in the screen" >> start.sh
 chmod +x start.sh
 echo "#!/bin/bash" > startmc.sh
 echo "java -Xms${minram}G -Xmx${maxram}G -XX:+UseConcMarkSweepGC -jar $var2" >> startmc.sh
