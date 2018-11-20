@@ -5,6 +5,8 @@ player=20
 view=10
 maxram=1
 minram=1
+mkdir MC
+cd MC
 apt install openjdk-8-jdk git openjdk-8-jre-headless -y
 java -version
 wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
@@ -85,5 +87,7 @@ echo "#!/bin/bash" > startmc.sh
 echo "java -Xms${minram}G -Xmx${maxram}G -XX:+UseConcMarkSweepGC -jar $var2" >> startmc.sh
 chmod +x startmc.sh
 echo "To start the server use ./start.sh"
-
+cd plugins/
+cd ..
+cd ..
 exit
