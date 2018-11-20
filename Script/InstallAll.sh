@@ -8,7 +8,7 @@ Yes_No ()
   apt install git -y
   # print question
   echo -e "\033[33mWelcome to Poli's server instllation tool\033[0m"
-  echo -ne "Do you want to install everything:"
+  echo -e "Do you want to install everything:"
   cd /home
   # read answer
   read YnAnswer
