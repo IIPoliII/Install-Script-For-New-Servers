@@ -455,4 +455,12 @@ while true; do
         * ) echo "Please answer yes or no.";;
     esac
 done
+while true; do
+    read -p "Do you want to install a NetData Monitor ?" yn
+    case $yn in
+        [Yy]* ) apt install netdata -y; break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 echo "Script Finished"
