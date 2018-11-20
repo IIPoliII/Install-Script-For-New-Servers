@@ -7,7 +7,7 @@ OR
 As root use :
 `bash -c "$(wget -qO - https://raw.githubusercontent.com/IIPoliII/Install-Script-For-New-Servers/master/Script/Install.sh)"`
 
-:+1: A screen (virtual terminal) is created when running the script so if your ssh session expire you can reatach it and continue your installation with `screen -ls` then take your screen number like `20149` and make `screen -x 20149` and you are back at your installation !
+:+1: A screen (virtual terminal) is created when running the script so if your ssh session expire you can reatach it and continue your installation with simply `screen +x` or if it doesnt' work use `screen -ls` then take your screen number like `20149` and make `screen -x 20149` and you are back at your installation !
 
 This Script is for my personal use for the packages i use when i create a new server.
 It can only work under Ubuntu, Debian, Raspbian, and debian distros with APT.
@@ -41,4 +41,4 @@ Then you can choose in a list of 21 games servers :
  19) TeamSpeak 3
  20) Don't Starve Together
  21) Rust
- 22) Minecraft (with Spigot)
+ 22) Minecraft (with Spigot) and DynMap plugin (port 9123)
