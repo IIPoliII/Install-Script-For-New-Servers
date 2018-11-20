@@ -281,7 +281,7 @@ while true; do
     esac
 done
 while true; do
-	echo -e "0) Don't install (Exit) \n 1) ARK Server \n 2) CS:GO \n 3) CSS \n 4) Double Action \n 5) ECO \n 6) Factorio \n 7) Fistful of Frags \n 8) Garry's mod \n 9) Insurgency \n 10) Just Cause 2 \n 11) Just Cause 3 \n 12) Left 4 Dead 2 \n 13) Mumble \n 14) Project Cars \n 15) GTA San Andreas Multiplayer \n 16) StarBound \n 17) Stationeers \n 18) Team Fortress 2 \n 19) TeamSpeak 3 \n 20) Don't Starve Together \n 21) Rust \n 22) Minecraft (with Spigot) \n"
+	echo -e "0) Don't install (Exit) \n 1) ARK Server \n 2) CS:GO \n 3) CSS \n 4) Double Action \n 5) ECO \n 6) Factorio \n 7) Fistful of Frags \n 8) Garry's mod \n 9) Insurgency \n 10) Just Cause 2 \n 11) Just Cause 3 \n 12) Left 4 Dead 2 \n 13) Mumble \n 14) Project Cars \n 15) GTA San Andreas Multiplayer \n 16) StarBound \n 17) Stationeers \n 18) Team Fortress 2 \n 19) TeamSpeak 3 \n 20) Don't Starve Together \n 21) Rust \n 22) Minecraft (with Spigot) \n 23) Install ALL (CAUTION) \n"
     read -p "Do you want to install a any of the games SERVER from the list ?" yn
 		if [[ $yn -eq "0" ]]
 	then
@@ -357,7 +357,8 @@ while true; do
 			cd /home/gmodserver
 			runuser -l gmodserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh gmodserver'
 			runuser -l gmodserver -c './gmodserver install'
-			cd /home;;
+			cd /home
+			;;
 		9 ) sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 -y
 			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) insserver
 			cd /home/insserver
@@ -452,9 +453,148 @@ while true; do
 		22 ) useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) mcserver
 			 cd /home/mcserver
 			 apt install openjdk-8-jdk git openjdk-8-jre-headless -y
-			 runuser -l mcserver -c 'bash -c "$(wget -qO - https://raw.githubusercontent.com/IIPoliII/Install-Script-For-New-Servers/master/Script/Minecraft/spigotinstall.sh)"'
+			 bash -c "$(wget -qO - https://raw.githubusercontent.com/IIPoliII/Install-Script-For-New-Servers/master/Script/Minecraft/spigotinstall.sh)"
 			 cd /home
 			 ;;
+		23 ) sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) arkserver
+			cd /home/arkserver
+			runuser -l arkserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh arkserver'
+			runuser -l arkserver -c './arkserver install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) csgoserver
+			cd /home/csgoserver
+			runuser -l csgoserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh csgoserver'
+			runuser -l csgoserver -c './csgoserver install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) cssserver
+			cd /home/cssserver
+			runuser -l cssserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh cssserver'
+			runuser -l cssserver -c './cssserver install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) dabserver
+			cd /home/dabserver
+			runuser -l dabserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh dabserver'
+			runuser -l dabserver -c './dabserver install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 mono-complete -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) ecoserver
+			cd /home/ecoserver
+			runuser -l ecoserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh ecoserver'
+			runuser -l ecoserver -c './ecoserver install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 xz-utils -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) fctrserver
+			cd /home/fctrserver
+			runuser -l fctrserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh fctrserver'
+			runuser -l fctrserver -c './fctrserver install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) fofserver
+			cd /home/fofserver
+			runuser -l fofserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh fofserver'
+			runuser -l fofserver -c './fofserver install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) fofserver
+			cd /home/fofserver
+			runuser -l fofserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh fofserver'
+			runuser -l fofserver -c './fofserver install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 lib32tinfo5 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) gmodserver
+			cd /home/gmodserver
+			runuser -l gmodserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh gmodserver'
+			runuser -l gmodserver -c './gmodserver install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) insserver
+			cd /home/insserver
+			runuser -l insserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh insserver'
+			runuser -l insserver -c './insserver install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) jc2server
+			cd /home/jc2server
+			runuser -l jc2server -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh jc2server'
+			runuser -l jc2server -c './jc2server install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) jc3server
+			cd /home/jc3server
+			runuser -l jc3server -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh jc3server'
+			runuser -l jc3server -c './jc3server install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install mailutils postfix curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) l4d2server
+			cd /home/l4d2server
+			runuser -l l4d2server -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh l4d2server'
+			runuser -l l4d2server -c './l4d2server install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) mumbleserver
+			cd /home/mumbleserver
+			runuser -l mumbleserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh mumbleserver'
+			runuser -l mumbleserver -c './mumbleserver install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) pcserver
+			cd /home/pcserver
+			runuser -l pcserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh pcserver'
+			runuser -l pcserver -c './pcserver install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) sampserver
+			cd /home/sampserver
+			runuser -l sampserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh sampserver'
+			runuser -l sampserver -c './sampserver install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) sbserver
+			cd /home/sbserver
+			runuser -l sbserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh sbserver'
+			runuser -l sbserver -c './sbserver install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 zlib1g -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) stserver
+			cd /home/stserver
+			runuser -l stserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh stserver'
+			runuser -l stserver -c './stserver install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 libcurl4-gnutls-dev:i386 libtcmalloc-minimal4:i386 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) tf2server
+			cd /home/tf2server
+			runuser -l tf2server -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh tf2server'
+			runuser -l tf2server -c './tf2server install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq libmariadb2 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) ts3server
+			cd /home/ts3server
+			runuser -l ts3server -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh ts3server'
+			runuser -l ts3server -c './ts3server install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 libcurl4-gnutls-dev:i386 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) dstserver
+			cd /home/dstserver
+			runuser -l dstserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh dstserver'
+			runuser -l dstserver -c './dstserver install'
+			cd /home
+			sudo dpkg --add-architecture i386; sudo apt update; sudo apt install curl wget file bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 lib32z1 -y
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) rustserver
+			cd /home/rustserver
+			runuser -l rustserver -c 'wget -O linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh rustserver'
+			runuser -l rustserver -c './rustserver install'
+			cd /home
+			useradd -g users -m -s /bin/bash -p $(echo ${passworduser} | openssl passwd -1 -stdin) mcserver
+			cd /home/mcserver
+			apt install openjdk-8-jdk git openjdk-8-jre-headless -y
+			bash -c "$(wget -qO - https://raw.githubusercontent.com/IIPoliII/Install-Script-For-New-Servers/master/Script/Minecraft/spigotinstall.sh)"
+			cd /home
+			break
+			;;
         * ) echo "Please answer yes or no.";;
     esac
 done
