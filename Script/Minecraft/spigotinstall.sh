@@ -88,6 +88,8 @@ echo "java -Xms${minram}G -Xmx${maxram}G -XX:+UseConcMarkSweepGC -jar $var2" >> 
 chmod +x startmc.sh
 echo "To start the server use ./start.sh"
 cd plugins/
+wget https://github.com/IIPoliII/Install-Script-For-New-Servers/raw/master/Script/Minecraft/Dynmap.jar
+chmod +x Dynmap.jar
 cd ..
 cd ..
 exit
