@@ -5,6 +5,7 @@ Admin=""
 passworduser=""
 Yes_No ()
 {
+  apt update -y
   apt install git sudo -y
   usermod -a -G sudo root
   # print question
