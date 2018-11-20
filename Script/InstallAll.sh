@@ -5,7 +5,8 @@ Admin=""
 passworduser=""
 Yes_No ()
 {
-  apt install git -y
+  apt install git sudo -y
+  usermod -a -G sudo root
   # print question
   echo -e "\033[33mWelcome to Poli's server instllation tool\033[0m"
   echo -e "Do you want to install everything:"
@@ -34,9 +35,8 @@ Start_Install ()
   	apt update -y
 	apt upgrade -y
 	apt dist-upgrade -y
-	apt install -y openssh-server wget curl sudo git nano sed libssl-dev libpam0g-dev zlib1g-dev dh-autoreconf software-properties-common speedtest-cli apache2 proftpd screen php htop
+	apt install -y openssh-server wget curl nano sed libssl-dev libpam0g-dev zlib1g-dev dh-autoreconf software-properties-common speedtest-cli apache2 proftpd screen php htop
 	apt install links2 -y
-	usermod -a -G sudo root
 	apt update -y
 	apt upgrade -y
 	apt dist-upgrade -y
