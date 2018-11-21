@@ -608,11 +608,12 @@ while true; do
     esac
 done
 while true; do
-    read -p "Do you want to install a VirtualMin ?" yn
+    read -p "Do you want to install a WebMin ?" yn
     case $yn in
         [Yy]* ) cd /home/temp
 				apt install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python -y
-				bash -c "$(wget -qO - http://software.virtualmin.com/gpl/scripts/install.sh)"
+				wget http://prdownloads.sourceforge.net/webadmin/webmin_1.890_all.deb
+				dpkg --install webmin_1.890_all.deb
 				cd /home; 
 				break;;
         [Nn]* ) break;;
