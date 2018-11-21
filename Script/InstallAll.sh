@@ -607,4 +607,16 @@ while true; do
         * ) echo "Please answer yes or no.";;
     esac
 done
+while true; do
+    read -p "Do you want to install a VirtualMin ?" yn
+    case $yn in
+        [Yy]* ) cd /home/temp
+				apt install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python -y
+				bash -c "$(wget -qO - http://software.virtualmin.com/gpl/scripts/install.sh)"
+				cd /home; 
+				break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 echo "Script Finished"
