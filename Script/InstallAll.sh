@@ -146,6 +146,7 @@ while true; do
 				 chmod 777 /var/www/download
 				 mkdir /var/www/html/download
 				 chmod 777 /var/www/html/download
+				 chmod 777 /var/www/html/download/Home
 				 echo "<html lang="en">" > /var/www/html/download/index.html
 				 echo "<head>" >> /var/www/html/download/index.html
 				 echo "<title>Redirection.....</title>" >> /var/www/html/download/index.html
