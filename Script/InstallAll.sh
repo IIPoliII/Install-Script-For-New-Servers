@@ -620,4 +620,48 @@ while true; do
         * ) echo "Please answer yes or no.";;
     esac
 done
+while true; do
+    read -p "Do you want to install a ShellInaBox ?" yn
+    case $yn in
+        [Yy]* ) cd /home/temp
+				apt install openssl shellinabox -y
+				if [[ $Domain == "" ]]
+				then
+				echo "Please enter your domain here if you want to create a Sub-domain for it"
+				read Domain
+				if [[ $Domain == "" ]]
+				then
+				echo "No subdomain will be created"
+				cd /home
+				break
+				else
+				 echo '<VirtualHost *:80>' > /etc/apache2/sites-available/ssh.${Domain}.conf
+				 echo "    DocumentRoot /var/www/download" >> /etc/apache2/sites-available/ssh.${Domain}.conf
+				 echo "    ErrorLog ${APACHE_LOG_DIR}/error.log" >> /etc/apache2/sites-available/ssh.${Domain}.conf
+				 echo "    CustomLog ${APACHE_LOG_DIR}/access.log combined" >> /etc/apache2/sites-available/ssh.${Domain}.conf
+				 echo "    ServerName download.${Domain}" >> /etc/apache2/sites-available/ssh.${Domain}.conf
+				 echo "    ServerAlias www.download.${Domain}" >> /etc/apache2/sites-available/ssh.${Domain}.conf
+				 echo "    DirectoryIndex index.php" >> /etc/apache2/sites-available/ssh.${Domain}.conf
+				 echo "</VirtualHost>" >> /etc/apache2/sites-available/ssh.${Domain}.conf
+				 a2ensite ssh.${Domain}.conf
+				 systemctl reload apache2
+				fi
+				else
+				 echo '<VirtualHost *:80>' > /etc/apache2/sites-available/ssh.${Domain}.conf
+				 echo "    DocumentRoot /var/www/download" >> /etc/apache2/sites-available/ssh.${Domain}.conf
+				 echo "    ErrorLog ${APACHE_LOG_DIR}/error.log" >> /etc/apache2/sites-available/ssh.${Domain}.conf
+				 echo "    CustomLog ${APACHE_LOG_DIR}/access.log combined" >> /etc/apache2/sites-available/ssh.${Domain}.conf
+				 echo "    ServerName download.${Domain}" >> /etc/apache2/sites-available/ssh.${Domain}.conf
+				 echo "    ServerAlias www.download.${Domain}" >> /etc/apache2/sites-available/ssh.${Domain}.conf
+				 echo "    DirectoryIndex index.php" >> /etc/apache2/sites-available/ssh.${Domain}.conf
+				 echo "</VirtualHost>" >> /etc/apache2/sites-available/ssh.${Domain}.conf
+				 a2ensite ssh.${Domain}.conf
+				 systemctl reload apache2
+				 fi
+				cd /home; 
+				break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 echo "Script Finished"
