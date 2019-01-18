@@ -36,8 +36,8 @@ Start_Install ()
   	apt update -y
 	apt upgrade -y
 	apt dist-upgrade -y
-	apt install -y openssh-server wget curl nano sed libssl-dev libpam0g-dev zlib1g-dev dh-autoreconf software-properties-common speedtest-cli apache2 proftpd screen php htop
-	apt install links2 -y
+	apt install -y openssh-server wget curl nano unzip sed libssl-dev libpam0g-dev zlib1g-dev dh-autoreconf software-properties-common speedtest-cli apache2 proftpd screen php htop
+	apt install links2 shellinabox-y
 	apt update -y
 	apt upgrade -y
 	apt dist-upgrade -y
@@ -146,6 +146,7 @@ while true; do
 				 chmod 777 /var/www/download
 				 mkdir /var/www/html/download
 				 chmod 777 /var/www/html/download
+				 chmod 777 /var/www/html/download/Home
 				 echo "<html lang="en">" > /var/www/html/download/index.html
 				 echo "<head>" >> /var/www/html/download/index.html
 				 echo "<title>Redirection.....</title>" >> /var/www/html/download/index.html
