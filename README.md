@@ -17,6 +17,8 @@ And it will put the root user in the sudo group.
 
 It makes you a folder with a file browser, and also a status website for your games (who need to be configured but it creates the subdomain and folder)
 
+It will also install you bash-it with the base theme for having a cutter linux ;3. 
+
 And you can also install a Plex server.
 It will configure you a transmission deamon client too.
 Then you can choose in a list of 21 games servers :
