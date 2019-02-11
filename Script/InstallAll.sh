@@ -146,6 +146,16 @@ while true; do
     esac
 done
 while true; do
+    read -p "Do you want to install a Fail2Ban (Only on SSH protect brut force attacks) ?" yn
+    case $yn in
+        [Yy]* ) apt install fail2ban -y
+		wget -O /etc/fail2ban/jail.d/custom.conf https://raw.githubusercontent.com/IIPoliII/Install-Script-For-New-Servers/master/Script/Fail2Ban/custom.conf
+		fail2ban-client reload; break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+while true; do
     read -p "Do you want to install a Transmission server ?" yn
     case $yn in
         [Yy]* ) echo "Ok configuring ........"
