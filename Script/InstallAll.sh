@@ -132,7 +132,7 @@ while true; do
     read -p "Do you want to install a bash-it ?" yn
     case $yn in
         [Yy]* ) git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-		~/.bash_it/install.sh -y; break;;
+		~/.bash_it/install.sh -s; break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
