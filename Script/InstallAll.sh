@@ -129,6 +129,15 @@ while true; do
     esac
 done
 while true; do
+    read -p "Do you want to install a bash-it ?" yn
+    case $yn in
+        [Yy]* ) git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+		~/.bash_it/install.sh -y; break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+while true; do
     read -p "Do you want to install a OpenVPN server ?" yn
     case $yn in
         [Yy]* ) bash -c "$(wget -qO - https://raw.githubusercontent.com/IIPoliII/Install-Script-For-New-Servers/master/Script/VPN/openvpn-install.sh)"; break;;
