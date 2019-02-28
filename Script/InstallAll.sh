@@ -301,6 +301,7 @@ while true; do
 				systemctl reload apache2
 				service transmission-daemon start
 				fi
+				
 				if [[ $torrentdelugetransmission == "1" ]]
 				then
 					apt install php git -y
@@ -334,14 +335,12 @@ while true; do
 				 echo "</VirtualHost>" >> /etc/apache2/sites-available/download.${Domain}.conf
 				 a2ensite download.${Domain}.conf
 				 systemctl reload apache2
-				 apt install git ca-certificates -y
-				 git clone https://github.com/IIPoliII/deluge-installer.git
-				 chmod +x deluge-installer/deluge-installer.sh
-				 ./deluge-installer/deluge-installer.sh
-				 rm -rf /var/www/download/Home/
-				 ln -sf /home/deluge/complete /var/www/download/Home
-				 ln -sf /home/deluge/incomplete /home/deluge/complete/incomplete
-				 ln -sf /home/deluge/autotv/Show/Season /home/deluge/complete/season
+				 chmod 777 /var/www/download/Home/
+				 bash <(curl -s https://raw.githubusercontent.com/IIPoliII/deluge-installer/master/install.sh)
+				 su -c 'deluge-console "config -s allow_remote True"' deluge
+				su -c 'deluge-console "config -s download_location /var/www/download/Home/incomplete"' deluge
+				su -c 'deluge-console "config -s move_completed true"' deluge
+				su -c 'deluge-console "config -s move_completed_path /var/www/download/Home"' deluge
 				fi; break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
