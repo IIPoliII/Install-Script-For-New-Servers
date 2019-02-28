@@ -12,6 +12,11 @@ As root use :
 This Script is for my personal use for the packages i use when i create a new server.
 It can only work under Ubuntu, Debian, Raspbian, and debian distros with APT.
 
+** IMPORTANT PLEX NOTE : **
+For the first setup you need to create a ssh tunnel on putty it's easy just do this and open your session (watch the menu left) : ![Image](https://i.imgur.com/8LyUcid.png)
+
+Then access to the web installer by typing in your browser : http://127.0.0.1:32400/web
+
 It will install : openssh-server wget curl sudo git nano sed libssl-dev libpam0g-dev zlib1g-dev dh-autoreconf software-properties-common speedtest-cli apache2 proftpd screen php.
 And it will put the root user in the sudo group.
 
@@ -20,6 +25,8 @@ It makes you a folder with a file browser, and also a status website for your ga
 It will also install you bash-it with the base theme for having a cutter linux ;3. 
 
 We will install you Fail2Ban to prevent pepoles hacking you on port 22 (brut force SSH) after 3 tries the IP gets banned be careful don't get banned by failing 3 times to avoid it just add your ip after `127.0.0.1` in `/etc/fail2ban/jail.d/custom.conf` like that `ignore ip = 127.0.0.1 8.8.8.8` (8.8.8.8 is your ip) here is a live preview if there are any bans http://vps.poli.fun/bans.php
+
+
 
 And you can also install a Plex server.
 It will configure you a transmission deamon client too.
