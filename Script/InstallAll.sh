@@ -156,9 +156,12 @@ while true; do
     esac
 done
 while true; do
-    read -p "Do you want to install a Transmission server ?" yn
+    read -p "Do you want to install a Transmission server/ Deluge Server ?" yn
     case $yn in
-        [Yy]* ) echo "Ok configuring ........"
+        [Yy]* )  read -p "Type 0 for Transmission 1 For Deluge" torrentdelugetransmission
+				 if [[ $torrentdelugetransmission == "0" ]]
+				 then
+				 echo "Ok configuring ........"
 				 apt install php git transmission-daemon -y
 				 git clone https://github.com/IIPoliII/Cute-File-Browser-Poli.git
 				 mv Cute-File-Browser-Poli/ /var/www/download
@@ -296,7 +299,50 @@ while true; do
 				echo "</VirtualHost>" >> /etc/apache2/sites-available/torrent.${Domain}.conf
 				a2ensite torrent.${Domain}.conf
 				systemctl reload apache2
-				service transmission-daemon start; break;;
+				service transmission-daemon start
+				fi
+				if [[ $torrentdelugetransmission == "1" ]]
+				then
+					apt install php git -y
+					git clone https://github.com/IIPoliII/Cute-File-Browser-Poli.git
+				 mv Cute-File-Browser-Poli/ /var/www/download
+				 chmod 777 /var/www/download
+				 mkdir /var/www/html/download
+				 chmod 777 /var/www/html/download
+				 chmod 777 /var/www/html/download/Home
+				 echo "<html lang="en">" > /var/www/html/download/index.html
+				 echo "<head>" >> /var/www/html/download/index.html
+				 echo "<title>Redirection.....</title>" >> /var/www/html/download/index.html
+				 meta='<meta http-equiv="refresh" content="0; URL='
+				 URL="http://download.${Domain}/"
+				 end='">'
+				 echo ${meta}${URL}${end} >> /var/www/html/download/index.html	
+				 echo "</head>" >> /var/www/html/download/index.html
+				 echo "<body>" >> /var/www/html/download/index.html
+				 echo "Redirection vers l'explorateur de fichiers" >> /var/www/html/download/index.html
+				 echo "</body>" >> /var/www/html/download/index.html
+				 echo "</html>" >> /var/www/html/download/index.html
+				 
+				 echo '<VirtualHost *:80>' > /etc/apache2/sites-available/download.${Domain}.conf
+				 echo "    ServerAdmin ${Admin}" >> /etc/apache2/sites-available/download.${Domain}.conf
+				 echo "    DocumentRoot /var/www/download" >> /etc/apache2/sites-available/download.${Domain}.conf
+				 echo "    ErrorLog ${APACHE_LOG_DIR}/error.log" >> /etc/apache2/sites-available/download.${Domain}.conf
+				 echo "    CustomLog ${APACHE_LOG_DIR}/access.log combined" >> /etc/apache2/sites-available/download.${Domain}.conf
+				 echo "    ServerName download.${Domain}" >> /etc/apache2/sites-available/download.${Domain}.conf
+				 echo "    ServerAlias www.download.${Domain}" >> /etc/apache2/sites-available/download.${Domain}.conf
+				 echo "    DirectoryIndex index.php" >> /etc/apache2/sites-available/download.${Domain}.conf
+				 echo "</VirtualHost>" >> /etc/apache2/sites-available/download.${Domain}.conf
+				 a2ensite download.${Domain}.conf
+				 systemctl reload apache2
+				 apt install git ca-certificates -y
+				 git clone https://github.com/IIPoliII/deluge-installer.git
+				 chmod +x deluge-installer/deluge-installer.sh
+				 ./deluge-installer/deluge-installer.sh
+				 rm -rf /var/www/download/Home/
+				 ln -sf /home/deluge/complete /var/www/download/Home
+				 ln -sf /home/deluge/incomplete /home/deluge/complete/incomplete
+				 ln -sf /home/deluge/autotv/Show/Season /home/deluge/complete/season
+				fi; break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
