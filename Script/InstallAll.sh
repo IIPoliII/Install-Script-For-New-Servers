@@ -304,6 +304,7 @@ while true; do
 				
 				if [[ $torrentdelugetransmission == "1" ]]
 				then
+					rm -rf /var/www/download
 					apt install php git -y
 					git clone https://github.com/IIPoliII/Cute-File-Browser-Poli.git
 				 mv Cute-File-Browser-Poli/ /var/www/download
@@ -341,6 +342,7 @@ while true; do
 				su -c 'deluge-console "config -s download_location /var/www/download/Home/incomplete"' deluge
 				su -c 'deluge-console "config -s move_completed true"' deluge
 				su -c 'deluge-console "config -s move_completed_path /var/www/download/Home"' deluge
+				service deluged start
 				fi; break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
