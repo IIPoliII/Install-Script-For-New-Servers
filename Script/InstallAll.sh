@@ -343,6 +343,7 @@ while true; do
 				su -c 'deluge-console "config -s move_completed true"' deluge
 				su -c 'deluge-console "config -s move_completed_path /var/www/download/Home"' deluge
 				service deluged start
+				service deluge-daemon start
 				fi; break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
