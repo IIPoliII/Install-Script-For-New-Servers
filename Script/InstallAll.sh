@@ -6,7 +6,13 @@ passworduser=""
 Yes_No ()
 {
   apt update -y
-  apt install git sudo -y
+  apt install git openssh-server -y
+  LINE='ClientAliveInterval 120'
+  FILE="/etc/ssh/sshd_config"
+  grep -qF -- "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
+  LINE='ClientAliveCountMax 720'
+  FILE="/etc/ssh/sshd_config"
+  grep -qF -- "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
   usermod -a -G sudo root
   # print question
   echo -e "\033[33mWelcome to Poli's server instllation tool\033[0m"
