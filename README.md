@@ -24,7 +24,7 @@ It makes you a folder with a file browser, and also a status website for your ga
 
 It will also install you bash-it with the base theme for having a cutter linux ;3. 
 
-We will install you Fail2Ban to prevent pepoles hacking you on port 22 (brut force SSH) after 3 tries the IP gets banned be careful don't get banned by failing 3 times to avoid it just add your ip after `127.0.0.1` in `/etc/fail2ban/jail.d/custom.conf` like that `ignore ip = 127.0.0.1 8.8.8.8` (8.8.8.8 is your ip) here is a live preview if there are any bans http://vps.poli.fun/bans.php
+We will install you Fail2Ban to prevent pepoles hacking you on port 22 (brut force SSH) after 3 tries the IP gets banned be careful don't get banned by failing 3 times to avoid it just add your ip after `127.0.0.1` in `/etc/fail2ban/jail.d/custom.conf` like that `ignore ip = 127.0.0.1 8.8.8.8` (8.8.8.8 is your ip).
 
 
 
