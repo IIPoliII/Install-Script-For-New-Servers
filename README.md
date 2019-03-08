@@ -30,6 +30,9 @@ We will install you Fail2Ban to prevent pepoles hacking you on port 22 (brut for
 
 And you can also install a Plex server.
 It will configure you a transmission/deluge deamon client too. Who can be access via `http://yourIP:9091/` for transmission and for deluge `http://yourIP:8112/` and you can login with the password `deluge`.
+
+You also have the possibility to install homebrew.
+
 Then you can choose in a list of 21 games servers :
  1) ARK Server
  2) CS:GO
