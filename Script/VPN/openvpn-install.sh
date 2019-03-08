@@ -1091,7 +1091,7 @@ function removeUnbound() {
 
 function removeOpenVPN() {
     echo ""
-    read -rp "Do you really want to remove OpenVPN? [y/n]: " -e -i n REMOVE
+    read -rp "Do you really want to remove OpenVPN? [y/n]: " -e -i REMOVE
     if [[ $REMOVE == 'y' ]]; then
         # Get OpenVPN port from the configuration
         PORT=$(grep '^port ' /etc/openvpn/server.conf | cut -d " " -f 2)
