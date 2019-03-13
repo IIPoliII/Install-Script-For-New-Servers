@@ -51,6 +51,8 @@ Start_Install() {
     apt update -y
     apt upgrade -y
     apt dist-upgrade -y
+	echo "alias ll='ls -l --color=auto'
+	alias ls='ls --color=auto'" >> /etc/profile.d/00-aliases.sh
 }
 Yes_No
 echo "Please enter your domain name (none won't create the subdomains in apache):"
