@@ -190,6 +190,10 @@ while true; do
         read -p "Type 0 for Transmission 1 For Deluge" torrentdelugetransmission
         if [[ $torrentdelugetransmission == "0" ]]; then
             echo "Ok configuring ........"
+	    a2enmod proxy
+    	    a2enmod proxy_http
+    	    a2enmod proxy_balancer
+    	    a2enmod lbmethod_byrequests
             apt install php git transmission-daemon -y
             git clone https://github.com/IIPoliII/Cute-File-Browser-Poli.git
             mv Cute-File-Browser-Poli/ /var/www/download
@@ -331,6 +335,10 @@ while true; do
         fi
 
         if [[ $torrentdelugetransmission == "1" ]]; then
+	    a2enmod proxy
+	    a2enmod proxy_http
+	    a2enmod proxy_balancer
+	    a2enmod lbmethod_byrequests
             rm -rf /var/www/download
             apt install php git -y
             git clone https://github.com/IIPoliII/Cute-File-Browser-Poli.git
