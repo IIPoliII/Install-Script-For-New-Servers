@@ -88,5 +88,6 @@ chmod +x startmc.sh
 echo "To start the server use ./start.sh"
 wget https://github.com/IIPoliII/Install-Script-For-New-Servers/raw/master/Script/Minecraft/Dynmap.jar
 chmod +x Dynmap.jar
+mkdir /home/mcserver/plugins/
 mv Dynmap.jar /home/mcserver/plugins/
 exit
