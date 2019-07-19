@@ -831,7 +831,7 @@ while true; do
     [Yy]*)
         cd /home/temp
         apt install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python -y
-        wget http://prdownloads.sourceforge.net/webadmin/webmin_1.890_all.deb
+        wget https://prdownloads.sourceforge.net/webadmin/webmin_1.920_all.deb
         dpkg --install webmin_1.890_all.deb
         cd /home
         break
