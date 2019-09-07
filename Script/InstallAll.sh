@@ -43,6 +43,7 @@ Start_Install() {
     apt update -y
     apt upgrade -y
     apt dist-upgrade -y
+    add-apt-repository universe
     apt install -y openssh-server mysql-client wget curl nano unzip sed file libncurses5-dev libncursesw5-dev libssl-dev libpam0g-dev zlib1g-dev dh-autoreconf software-properties-common speedtest-cli apache2 proftpd screen php htop
     a2enmod proxy
     a2enmod proxy_http
